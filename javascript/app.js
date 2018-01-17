@@ -1,9 +1,10 @@
 alert("Welcome!");
 
-$(function () {
+
+$(document).ready(function(){
     
 //     // Build URL
-    var topics = ["happy", "sad", "scared", "surprised","shocked", "embarrassed", "lovestruck"];    
+    var topics = ["happy", "sad", "scared", "surprised","shocked", "embarrassed", "lovestruck", "confident", "mischevious"];    
     console.log(topics);
 
 //     //  Render buttons Function
@@ -33,7 +34,7 @@ $(function () {
 renderButtons();
 
 
-$("document").on("click", ".emotion",  function(event){
+$(document).on("click", ".emotion",  function(event){
 
 var emotion = $(this).attr("data-name");
 
@@ -57,6 +58,7 @@ $.ajax({
             var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + rating);
             var emotionImage = $("<img>");
+            emotionImage.addClass("gif");
             emotionImage.attr("src", results[i].images.fixed_width_still.url);
 
             gifDiv.append(p);
@@ -69,9 +71,72 @@ $.ajax({
 
 })
 
-
 })
 
-});
 
+    $(".gif").on("click", function(stillandanimate){
+        console.log("stillandanimate");
+
+        var results = response.data;
+        console.log(results);
+
+        var still = results[i].images.fixed_width_still.url;
+        console.log(still);
+
+        var animate = results[i].images.original.url;
+        console.log(animate);
+
+        var emotion = $(this).attr("data-name");
+        console.log(emotion);
+
+        var state = $(this).attr("data-state");
+        console.log(state);
+
+        var dataStill = $(this).attr("data-still");
+        console.log(dataStill);
+
+        var dataAnimate = $(this).attr("data-animate");
+        console.log(dataAnimate);
+        
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=v93x59cMlpoYcdlbOnsLX9WjPiDFCVj0&q=" + emotion + "&limit=10&offset=0&rating=G&lang=en"
+        console.log(queryURL);        
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+        
+        .then(function(){
+           
+            if(state === results[i].images.fixed_width_still.url){
+                $(this).attr("src", $(this).attr(animate));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr(still));
+                $(this).attr("data-state", "still");
+
+            }
+        });
+       
+    
+        });
+
+    });
+
+
+
+         // var still = results[i].images.original_still.url;
+        // console.log(still);
+
+        // var animate = results[i].images.original.url;
+        // console.log(animate);
+
+        // var state = $(this).attr(still);
+        // console.log(state);
+
+        // if(state === still){
+        // $(this).attr("src", $(this).attr(still));
+        // } else {
+        // $(this).attr("src", $(this).attr(animate));
+        // // $(this).attr("data-state", "still");
 
