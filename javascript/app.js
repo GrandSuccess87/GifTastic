@@ -1,6 +1,5 @@
 alert("Welcome!");
 
-
 $(document).ready(function(){
     
 //     // Build URL
@@ -80,6 +79,8 @@ $.ajax({
         var results = response.data;
         console.log(results);
 
+        var image = $("<img>");
+
         var still = results[i].images.fixed_width_still.url;
         console.log(still);
 
@@ -139,4 +140,38 @@ $.ajax({
         // } else {
         // $(this).attr("src", $(this).attr(animate));
         // // $(this).attr("data-state", "still");
+
+        // var gif = $("<img>");
+        //response.data[i].images.original_still.url
+
+        //gif.attr("src",response.data[i].images.original_still.url )
+
+        //for (let i=0; i < response.data.length; i++){
+    //     $(".gifs-container").append("<img
+    //     class="gif"
+
+    // var gif = $("<img>");
+    // gif.att("c")
+    //     gif.attr(src", response.data[i].images.original_still.url);
+    //     gif.attr("data-animate", response.data[i].images.original.url}
+    //     gif.attr(data-still", response.data[i].images.original_still.url}
+    //     gif.attr("data-state", "still");
+    
+    //$(".gifs-container").append(gif);
+// }   
+    
+    // });
+
+    // $(".gifts-container").on("click", ".gif", function(){
+    if($(this).attr("data-state") === "still"){
+
+        $(this).attr("src", $(this).attr("data-animate"))
+        $(this).attr("src", "data-state", "animate");
+    
+    // }
+
+
+    // })
+
+
 

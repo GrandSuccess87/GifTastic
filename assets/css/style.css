@@ -1,0 +1,9 @@
+.gif {
+    float: left;
+}
+
+button,
+input,
+form {
+    margin-left: 30%;
+}
