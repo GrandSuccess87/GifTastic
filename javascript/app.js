@@ -151,7 +151,7 @@ $.ajax({
     //     class="gif"
 
     // var gif = $("<img>");
-    // gif.att("c")
+    //     gif.attr("class", "gif")
     //     gif.attr(src", response.data[i].images.original_still.url);
     //     gif.attr("data-animate", response.data[i].images.original.url}
     //     gif.attr(data-still", response.data[i].images.original_still.url}
@@ -163,10 +163,10 @@ $.ajax({
     // });
 
     // $(".gifts-container").on("click", ".gif", function(){
-    if($(this).attr("data-state") === "still"){
+    // if($(this).attr("data-state") === "still"){
 
-        $(this).attr("src", $(this).attr("data-animate"))
-        $(this).attr("src", "data-state", "animate");
+    //     $(this).attr("src", $(this).attr("data-animate"))
+    //     $(this).attr("src", "data-state", "animate");
     
     // }
 

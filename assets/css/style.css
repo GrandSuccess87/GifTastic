@@ -3,14 +3,20 @@ body {
 
 }
 
-.emotion {
-    display: inline-block;
+h1{
+    text-align: center;
+    color: rgb(17, 151, 230);
+}
+
+#gifs-appear-here {
+    width: 80%;
 }
 
 button {
     background-color: blueviolet;
-    margin-top: auto;
-    margin-left: auto;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
     padding: 10px 10px;
     color: white;
     text-align: center;
@@ -24,6 +30,25 @@ button:hover {
     color: white;
 }
 
+img { 
+	width: 40%;
+	text-align: left;
+	margin-top: 10px;
+	border: 1px grey solid;
+}
+
 form {
     float: right;
+}
+
+label {
+    font-size: 20px;
+}
+
+#image-input {
+    margin-left: 15%;
+}
+
+#add-image{
+    margin-left: auto;
 }
