@@ -11,7 +11,7 @@ $(document).ready(function(){
         //.empty() removes all child nodes of the set of matched elements from the DOM.
         $("#emotion-buttons").empty(); 
             for (i=0; i < topics.length; i++) {
-                
+
              // Dynamically add a button
             var a = $("<button>");
             console.log(a);
@@ -34,6 +34,7 @@ $(document).ready(function(){
             event.preventDefault();
             var newImage = $("#image-input").val().trim();
             topics.push(newImage);
+            $("#image-input").val('');
             console.log(newImage);
 
             renderButtons();
