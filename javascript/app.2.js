@@ -30,10 +30,13 @@ $(document).ready(function(){
         }
     }
 
+        //Take user input to add a new image  
         $("#add-image").on("click", function(event){
             event.preventDefault();
             var newImage = $("#image-input").val().trim();
             topics.push(newImage);
+            
+            //Set input field to empty
             $("#image-input").val('');
             console.log(newImage);
 
@@ -42,6 +45,7 @@ $(document).ready(function(){
 
     renderButtons();
 
+    //Set up ajax GET request to receive matching gif with corresponding emotion
     $(document).on("click", ".emotion",  function(event){
     
         var emotion = $(this).attr("data-name");
@@ -63,7 +67,7 @@ $(document).ready(function(){
 
         for(var i=0; i < results.length; i++){
 
-
+            // Display results with a rating of 'g'
             if(results[i].rating === "g"){
                 
                 var gifDiv = $("<div class='item'>");
@@ -71,6 +75,7 @@ $(document).ready(function(){
                 var p = $("<p>").text("Rating: " + rating);
                 var emotionImage = $("<img>");
                 emotionImage.addClass("gif");
+                //Set up data attributes for animated and still gifs
                 emotionImage.attr("src", results[i].images.original_still.url)
                 emotionImage.attr("data-animate", results[i].images.original.url)
                 emotionImage.attr("data-still", results[i].images.original_still.url)
@@ -83,6 +88,7 @@ $(document).ready(function(){
         } 
     })
 
+    //Create a function to animate the gif or change its state to still
     $("#gifs-appear-here").on("click", ".gif", function(){
 
         if($(this).attr("data-state") === "still"){
